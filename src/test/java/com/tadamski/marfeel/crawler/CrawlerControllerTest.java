@@ -6,6 +6,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,6 +57,19 @@ public class CrawlerControllerTest {
 
         //then
         assertThat(jobQueueMock).hasJob(webpage("example.org"));
+    }
+
+    @Test
+    public void shouldAcceptExampleInput() throws Exception {
+        //when
+        ResultActions result = mockMvc.perform(requestWith().content(inputFromFile("example.json")));
+
+        //then
+        result.andExpect(status().isAccepted());
+    }
+
+    private String inputFromFile(String exampleFileName) throws IOException {
+        return IOUtils.toString(this.getClass().getClassLoader().getResource("test/inputs/" + exampleFileName));
     }
 
     private MockHttpServletRequestBuilder requestWith() {
