@@ -1,17 +1,35 @@
 package com.tadamski.marfeel.crawler;
 
-import org.springframework.http.HttpStatus;
+import static com.tadamski.marfeel.crawler.CrawlerJob.webpage;
+import static org.springframework.http.HttpStatus.ACCEPTED;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @RestController
 public class CrawlerController {
 
-    @RequestMapping(path = "/jobs", method = RequestMethod.POST)
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void acceptCrawlerJob() {
+    @Autowired
+    private CrawlerJobQueue jobQueue;
 
+    @RequestMapping(path = "/jobs", method = POST, consumes = APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = ACCEPTED)
+    public void acceptCrawlerJobs(@RequestBody List<WebpageToCrawl> webpages) {
+        webpages.forEach((it) -> jobQueue.push(webpage(it.url)));
+    }
+
+
+    private static class WebpageToCrawl {
+        @JsonProperty("url")
+        String url;
     }
 }
