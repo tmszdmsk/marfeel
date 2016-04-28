@@ -1,6 +1,5 @@
-package com.tadamski.marfeel.crawler;
+package com.tadamski.marfeel.crawler.webcontroller;
 
-import static com.tadamski.marfeel.crawler.CrawlerJob.webpage;
 import static org.springframework.http.HttpStatus.ACCEPTED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -24,7 +23,7 @@ public class CrawlerController {
     @RequestMapping(path = "/jobs", method = POST, consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(code = ACCEPTED)
     public void acceptCrawlerJobs(@RequestBody List<WebpageToCrawl> webpages) {
-        webpages.forEach((it) -> jobQueue.push(webpage(it.url)));
+        webpages.forEach((it) -> jobQueue.push(CrawlerJob.webpage(it.url)));
     }
 
 

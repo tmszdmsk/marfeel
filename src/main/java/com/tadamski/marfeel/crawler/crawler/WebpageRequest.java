@@ -1,24 +1,26 @@
-package com.tadamski.marfeel.crawler;
+package com.tadamski.marfeel.crawler.crawler;
 
 import java.util.Objects;
 
-public class CrawlerJob {
+import com.tadamski.marfeel.crawler.webcontroller.CrawlerJob;
+
+public class WebpageRequest {
 
     private String url;
 
-    private CrawlerJob(String url) {
+    public WebpageRequest(String url) {
         this.url = url;
     }
 
-    public static CrawlerJob webpage(String url) {
-        return new CrawlerJob(url);
+    public static WebpageRequest from(CrawlerJob job) {
+        return new WebpageRequest(job.getUrl());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CrawlerJob that = (CrawlerJob) o;
+        WebpageRequest that = (WebpageRequest) o;
         return Objects.equals(url, that.url);
     }
 
@@ -29,7 +31,7 @@ public class CrawlerJob {
 
     @Override
     public String toString() {
-        return "CrawlerJob{" +
+        return "WebpageRequest{" +
                 "url='" + url + '\'' +
                 '}';
     }

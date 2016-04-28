@@ -1,7 +1,7 @@
-package com.tadamski.marfeel.crawler;
+package com.tadamski.marfeel.crawler.webcontroller;
 
-import static com.tadamski.marfeel.crawler.CrawlerJob.webpage;
-import static com.tadamski.marfeel.crawler.mocks.CrawlerJobQueueMock.CrawlerJobQueueAssertions.assertThat;
+import static com.tadamski.marfeel.crawler.webcontroller.CrawlerJob.webpage;
+import static com.tadamski.marfeel.crawler.webcontroller.mocks.CrawlerJobQueueMock.CrawlerJobQueueAssertions.assertThat;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.tadamski.marfeel.crawler.mocks.CrawlerJobQueueMock;
+import com.tadamski.marfeel.crawler.webcontroller.mocks.CrawlerJobQueueMock;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

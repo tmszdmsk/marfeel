@@ -1,4 +1,4 @@
-package com.tadamski.marfeel.crawler.mocks;
+package com.tadamski.marfeel.crawler.webcontroller.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.api.Assertions;
 
-import com.tadamski.marfeel.crawler.CrawlerJob;
-import com.tadamski.marfeel.crawler.CrawlerJobQueue;
+import com.tadamski.marfeel.crawler.webcontroller.CrawlerJob;
+import com.tadamski.marfeel.crawler.webcontroller.CrawlerJobQueue;
 
 public class CrawlerJobQueueMock implements CrawlerJobQueue {
     private List<CrawlerJob> crawlerJobs = new ArrayList<>();
