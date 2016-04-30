@@ -16,8 +16,8 @@ public class CrawlerTest {
 
     private static final CrawlerJob CRAWLER_JOB_EXAMPLE = CrawlerJob.webpage("example.org");
     private static final WebpageRequest WEBPAGE_REQUEST_EXAMPLE = WebpageRequest.from(CRAWLER_JOB_EXAMPLE);
-    private static final Webpage WEBPAGE_EXAMPLE = new Webpage();
-    private static final QualificationResult QUALIFICATION_RESULT_EXAMPLE = new QualificationResult();
+    private static final Webpage WEBPAGE_EXAMPLE = Webpage.withContent("example page");
+    private static final QualificationResult QUALIFICATION_RESULT_EXAMPLE = QualificationResult.notQualified();
 
     @Mock
     private WebpageDownloader webpageDownloader;
