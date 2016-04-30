@@ -59,6 +59,6 @@ public class CrawlerTest {
         crawler.push(CRAWLER_JOB_EXAMPLE);
 
         //then
-        verify(resultsStorage).store(QUALIFICATION_RESULT_EXAMPLE);
+        verify(resultsStorage).store(WEBPAGE_REQUEST_EXAMPLE, QUALIFICATION_RESULT_EXAMPLE);
     }
 }

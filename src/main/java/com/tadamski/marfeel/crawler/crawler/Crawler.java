@@ -17,8 +17,9 @@ public class Crawler implements CrawlerJobQueue {
 
     @Override
     public void push(CrawlerJob job) {
-        Webpage page = webpageDownloader.download(WebpageRequest.from(job));
+        WebpageRequest webpageRequest = WebpageRequest.from(job);
+        Webpage page = webpageDownloader.download(webpageRequest);
         QualificationResult qualificationResult = webpageQualifier.qualify(page);
-        resultsStorage.store(qualificationResult);
+        resultsStorage.store(webpageRequest, qualificationResult);
     }
 }
