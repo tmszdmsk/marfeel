@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
@@ -53,7 +54,7 @@ public class CrawlerControllerTest {
     @Test
     public void shouldPassUrlToQueue() throws Exception {
         //when
-        mockMvc.perform(requestWith().content("[{\"url\": \"example.org\"}]"));
+        mockMvc.perform(requestWith().content(withHostname("example.org")));
 
         //then
         assertThat(jobQueueMock).hasJob(webpage("example.org"));
@@ -68,8 +69,24 @@ public class CrawlerControllerTest {
         result.andExpect(status().isAccepted());
     }
 
+    @Test
+    public void shouldRefuseWrongUrls() throws Exception {
+        //when
+        ResultActions result = mockMvc.perform(requestWith().content(withHostname("wrong hostname")));
+
+        //then
+        result.andExpect(status().isBadRequest());
+    }
+
+    private String withHostname(String s) {
+        return "[{\"url\": \"" + s + "\"}]";
+    }
+
     private String inputFromFile(String exampleFileName) throws IOException {
-        return IOUtils.toString(this.getClass().getClassLoader().getResource("test/inputs/" + exampleFileName));
+        return IOUtils.toString(
+                this.getClass().getClassLoader().getResource("test/inputs/" + exampleFileName),
+                StandardCharsets.UTF_8
+        );
     }
 
     private MockHttpServletRequestBuilder requestWith() {

@@ -1,21 +1,22 @@
 package com.tadamski.marfeel.crawler.webcontroller;
 
+import java.net.URI;
 import java.util.Objects;
 
 public class CrawlerJob {
 
-    private String url;
+    private URI uri;
 
-    private CrawlerJob(String url) {
-        this.url = url;
+    private CrawlerJob(String uri) {
+        this.uri = URI.create(uri);
     }
 
-    public static CrawlerJob webpage(String url) {
-        return new CrawlerJob(url);
+    public static CrawlerJob webpage(String hostname) {
+        return new CrawlerJob("http://" + hostname);
     }
 
-    public String getUrl() {
-        return url;
+    public URI getUri() {
+        return uri;
     }
 
     @Override
@@ -23,18 +24,18 @@ public class CrawlerJob {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CrawlerJob that = (CrawlerJob) o;
-        return Objects.equals(url, that.url);
+        return Objects.equals(uri, that.uri);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(url);
+        return Objects.hash(uri);
     }
 
     @Override
     public String toString() {
         return "CrawlerJob{" +
-                "url='" + url + '\'' +
+                "uri='" + uri + '\'' +
                 '}';
     }
 }
