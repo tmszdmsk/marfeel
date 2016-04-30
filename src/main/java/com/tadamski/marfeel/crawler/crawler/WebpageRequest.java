@@ -17,6 +17,10 @@ public class WebpageRequest {
         return new WebpageRequest(job.getUri());
     }
 
+    public URI getUri() {
+        return uri;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
