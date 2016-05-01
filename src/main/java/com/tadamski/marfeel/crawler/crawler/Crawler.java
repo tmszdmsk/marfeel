@@ -3,7 +3,7 @@ package com.tadamski.marfeel.crawler.crawler;
 import com.tadamski.marfeel.crawler.webcontroller.CrawlerJob;
 import com.tadamski.marfeel.crawler.webcontroller.CrawlerJobQueue;
 
-public class Crawler implements CrawlerJobQueue {
+class Crawler implements CrawlerJobQueue {
 
     private WebpageDownloader webpageDownloader;
     private WebpageQualifier webpageQualifier;

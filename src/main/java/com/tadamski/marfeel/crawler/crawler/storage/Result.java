@@ -6,13 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Result {
+class Result {
 
     @Id
     private URI uri;
     private Boolean qualified;
 
-    Result(){
+    Result() {
     }
 
     public Result(URI uri, Boolean qualified) {

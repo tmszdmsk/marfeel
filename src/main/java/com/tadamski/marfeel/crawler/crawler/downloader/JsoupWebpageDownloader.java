@@ -8,7 +8,7 @@ import com.tadamski.marfeel.crawler.crawler.Webpage;
 import com.tadamski.marfeel.crawler.crawler.WebpageDownloader;
 import com.tadamski.marfeel.crawler.crawler.WebpageRequest;
 
-public class JsoupWebpageDownloader implements WebpageDownloader {
+class JsoupWebpageDownloader implements WebpageDownloader {
 
     @Override
     public Webpage download(WebpageRequest webpageRequest) {

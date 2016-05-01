@@ -9,7 +9,7 @@ import com.tadamski.marfeel.crawler.crawler.QualificationResult;
 import com.tadamski.marfeel.crawler.crawler.Webpage;
 import com.tadamski.marfeel.crawler.crawler.WebpageQualifier;
 
-public class TitleTagQualifier implements WebpageQualifier {
+class TitleTagQualifier implements WebpageQualifier {
 
     private List<String> qualifiedWords = Arrays.asList("news", "noticias");
 

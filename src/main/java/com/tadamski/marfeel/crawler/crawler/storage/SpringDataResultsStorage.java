@@ -8,7 +8,7 @@ import com.tadamski.marfeel.crawler.crawler.ResultsStorage;
 import com.tadamski.marfeel.crawler.crawler.WebpageRequest;
 
 @Component
-public class SpringDataResultsStorage implements ResultsStorage {
+class SpringDataResultsStorage implements ResultsStorage {
 
     @Autowired
     private ResultsRepository repository;

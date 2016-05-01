@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @RestController
-public class CrawlerController {
+class CrawlerController {
 
     @Autowired
     private CrawlerJobQueue jobQueue;
