@@ -9,8 +9,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.tadamski.marfeel.crawler.webcontroller.CrawlerController;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackageClasses = CrawlerController.class)

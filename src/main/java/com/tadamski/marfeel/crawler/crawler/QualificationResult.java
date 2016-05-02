@@ -7,15 +7,15 @@ public class QualificationResult {
         this.qualified = qualified;
     }
 
-    public boolean isQualified() {
-        return qualified;
-    }
-
     public static QualificationResult notQualified() {
         return new QualificationResult(false);
     }
 
     public static QualificationResult qualified() {
         return new QualificationResult(true);
+    }
+
+    public boolean isQualified() {
+        return qualified;
     }
 }

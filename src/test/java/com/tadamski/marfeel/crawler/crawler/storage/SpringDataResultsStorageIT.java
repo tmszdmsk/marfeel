@@ -17,7 +17,7 @@ import com.tadamski.marfeel.crawler.webcontroller.CrawlerJob;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {StorageContextConfiguration.class})
-public class SpringDataResultsStorageTest {
+public class SpringDataResultsStorageIT {
 
     public static final String EXAMPLE_HOSTNAME = "google.com";
     public static final URI EXAMPLE_URI = URI.create("http://google.com");

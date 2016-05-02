@@ -28,7 +28,7 @@ import com.tadamski.marfeel.crawler.webcontroller.mocks.CrawlerJobQueueMock;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebContextConfiguration.class, TestContextConfiguration.class})
-public class CrawlerControllerTest {
+public class CrawlerControllerIT {
 
     @Autowired
     private WebApplicationContext context;
