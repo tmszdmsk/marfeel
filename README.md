@@ -3,7 +3,7 @@ It's a mini-project that was a task given to me by company I applied to. Nothing
 
 Goal was to create a basic web crawler that will qualify pages based on the content of title tag.
 
-Requirements:
+Requirements
 ------
  * expose a rest api that will accept the json document with url of sites
  * for every url crawler will download the page and check if title tag contains required text
